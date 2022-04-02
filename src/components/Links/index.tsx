@@ -8,14 +8,14 @@ function index() {
     <ul className="header__links">
       <li>
         <a className="header__link" href="#">
-          <GrLinkedinOption />
-          <span>Linkedin</span>
+          <FiGithub />
+          <span>Github</span>
         </a>
       </li>
       <li>
         <a className="header__link" href="#">
-          <FiGithub />
-          <span>Github</span>
+          <GrLinkedinOption />
+          <span>Linkedin</span>
         </a>
       </li>
       <li>

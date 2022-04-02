@@ -1,11 +1,20 @@
 import "./style.scss";
 
-function index() {
+type Props = {
+  loggedIn: boolean;
+};
+
+function index({ loggedIn }: Props) {
   return (
     <div className="header__buttons">
-      <button className="signin">Entrar</button>
-      <button className="signup">Cadastrar</button>
-      <button className="signout">Sair</button>
+      {loggedIn ? (
+        <button className="signout">Sair</button>
+      ) : (
+        <>
+          <button className="signin">Entrar</button>
+          <button className="signup">Cadastrar</button>
+        </>
+      )}
     </div>
   );
 }

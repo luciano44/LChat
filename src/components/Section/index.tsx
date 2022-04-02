@@ -1,11 +1,16 @@
 import "./style.scss";
 import backgroundLogo from "../../img/logos/background-logo/background-logo.png";
 
-const index: React.FC<{}> = ({ children }) => {
+type Props = {
+  children: React.ReactChildren | React.ReactNode;
+  title: string;
+};
+
+function index({ children, title }: Props) {
   return (
     <section className="section">
       <header>
-        <span>CHAT</span>
+        <span>{title}</span>
       </header>
       <div className="section__wrapper">
         <img
@@ -17,6 +22,6 @@ const index: React.FC<{}> = ({ children }) => {
       </div>
     </section>
   );
-};
+}
 
 export default index;

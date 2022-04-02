@@ -2,6 +2,8 @@
 @import "../../css/mixins.scss";
 
 .section__chat {
+  display: flex;
+  flex-direction: column;
   top: 0;
   position: absolute;
   height: 100%;
@@ -12,33 +14,34 @@
     height: 50px;
     width: 100%;
     background: $second-color;
-    position: absolute;
     bottom: 0;
     padding: 10px;
 
     input {
+      box-shadow: 0 0 3px lightgray;
       flex: 1 1 100%;
       font-size: 1.1rem;
-      padding: 5px;
-      border-radius: $border-radius;
       border: 1px solid $first-color;
-      box-shadow: 0 0 3px $first-color;
+      border-radius: $border-radius;
+      height: 35px;
     }
     button {
-      box-shadow: 0 0 3px $first-color;
+      box-shadow: 0 0 3px lightgray;
       color: $link-color;
       background-color: $first-color;
-      font-size: 1.1rem;
-      padding: 5px;
       margin-left: 10px;
       border-radius: $border-radius;
+      height: 35px;
+      padding: 0 20px;
     }
   }
 }
 
 .section__chat__messages {
-  height: 100%;
+  overflow-x: auto;
   width: 100%;
+  padding: 0;
+
   li {
     list-style: none;
   }
