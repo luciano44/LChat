@@ -1,0 +1,45 @@
+@import "../../css/variables.scss";
+@import "../../css/mixins.scss";
+
+.section__chat {
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  form {
+    @include flexCenter;
+    height: 50px;
+    width: 100%;
+    background: $second-color;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+
+    input {
+      flex: 1 1 100%;
+      font-size: 1.1rem;
+      padding: 5px;
+      border-radius: $border-radius;
+      border: 1px solid $first-color;
+      box-shadow: 0 0 3px $first-color;
+    }
+    button {
+      box-shadow: 0 0 3px $first-color;
+      color: $link-color;
+      background-color: $first-color;
+      font-size: 1.1rem;
+      padding: 5px;
+      margin-left: 10px;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+.section__chat__messages {
+  height: 100%;
+  width: 100%;
+  li {
+    list-style: none;
+  }
+}

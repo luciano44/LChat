@@ -1,0 +1,11 @@
+@import "../../css/variables.scss";
+
+.main {
+  position: relative;
+  display: flex;
+  max-width: 1047px;
+  height: 85vh;
+  min-height: 600px;
+  margin: 5px auto;
+  padding: 0 3px;
+}

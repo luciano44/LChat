@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin boxStyle {
+  border: 1px solid $border-color;
+  background-color: $second-color;
+  box-shadow: 0 0 5px hsla(219, 75%, 20%, 0.1);
+}

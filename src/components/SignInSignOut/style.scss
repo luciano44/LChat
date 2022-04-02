@@ -1,0 +1,32 @@
+@import "../../css/mixins.scss";
+@import "../../css/variables.scss";
+
+.header__buttons {
+  @include flexCenter;
+  margin-left: 30px;
+
+  button {
+    border: none;
+    margin-left: 5px;
+    padding: 3px 8px;
+    border-radius: $border-radius;
+    color: $second-color;
+    text-shadow: 0 0 5px gray;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(0.85);
+    }
+  }
+
+  .signin {
+    background-color: $signin-btn;
+  }
+  .signup {
+    background-color: $signup-btn;
+    border: 1px solid $link-color;
+  }
+  .signout {
+    background-color: $signout-btn;
+  }
+}

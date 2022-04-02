@@ -1,0 +1,41 @@
+@import "../../css/variables.scss";
+@import "../../css/mixins.scss";
+
+.section {
+  @include boxStyle;
+  display: flex;
+  flex-direction: column;
+  flex: 4 1;
+  height: 100%;
+  margin-left: 5px;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  header {
+    @include flexCenter;
+    background-color: $first-color;
+    width: 100%;
+    min-height: 35px;
+    span {
+      color: $second-color;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+.section__wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.section__background-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  filter: opacity(0.04) saturate(0);
+  transform: translate(-50%, -50%);
+  user-select: none;
+  -webkit-user-drag: none;
+}

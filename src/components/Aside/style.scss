@@ -1,0 +1,11 @@
+@import "../../css/variables.scss";
+@import "../../css/mixins.scss";
+
+.aside {
+  @include boxStyle;
+  height: 100%;
+  display: flex;
+  flex: 1 1;
+  border-radius: $border-radius;
+  margin-left: 5px;
+}
