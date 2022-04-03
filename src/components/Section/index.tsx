@@ -3,7 +3,7 @@ import backgroundLogo from "../../img/logos/background-logo/background-logo.png"
 
 type Props = {
   children: React.ReactChildren | React.ReactNode;
-  title: string;
+  title: "CHAT" | "PERFIL" | "USUÁRIOS" | "CADASTRE-SE" | "LOGIN" | "SOBRE";
 };
 
 function index({ children, title }: Props) {

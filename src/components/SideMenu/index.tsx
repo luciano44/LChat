@@ -12,11 +12,11 @@ function index() {
   return (
     <div className="side-menu">
       <ul>
-        <li>
+        {/* <li>
           <a href="#">
             <BsChatRight />
           </a>
-        </li>
+        </li> */}
         <li>
           <a href="#">
             <BsChatRightFill />
@@ -27,21 +27,21 @@ function index() {
             <BsPerson />
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#">
             <BsPersonFill />
           </a>
-        </li>
+        </li> */}
         <li>
           <a href="#">
             <BsPeople />
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#">
             <BsPeopleFill />
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

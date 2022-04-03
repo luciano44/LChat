@@ -24,6 +24,7 @@
       border: 1px solid $first-color;
       border-radius: $border-radius;
       height: 35px;
+      padding-left: 10px;
     }
     button {
       box-shadow: 0 0 3px lightgray;
@@ -40,6 +41,7 @@
 .section__chat__messages {
   overflow-x: auto;
   width: 100%;
+  flex-grow: 1;
   padding: 0;
 
   li {
