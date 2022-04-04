@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
+
+// components
 import Main from "./components/Main";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Aside from "./components/Aside";
 import SideMenu from "./components/SideMenu";
-import Chat from "./components/Chat";
 import Message from "./components/Message";
 import Links from "./components/Links";
 import SignInSignOut from "./components/SignInSignOut";
+
+// page components
+import Chat from "./components/Pages/Chat";
+
+// css
 import "./css/App.scss";
 
 export type MessagesType = {
@@ -16,6 +22,7 @@ export type MessagesType = {
 };
 
 function App() {
+  const [limitOfMessages, setLimitOfMessages] = useState(300);
   const [messages, setMessages] = useState<MessagesType[]>([
     {
       author: "Bob",
@@ -65,6 +72,15 @@ function App() {
     },
   ]);
 
+  // delete old messages
+  useEffect(() => {
+    if (messages.length > limitOfMessages) {
+      const newMessages = messages;
+      newMessages.splice(0, 50);
+      setMessages((prev) => [...newMessages]);
+    }
+  });
+
   return (
     <>
       <Header>
@@ -80,7 +96,18 @@ function App() {
             ))}
           </Chat>
         </Section>
-        <Aside />
+        <Aside>
+          <li>hellowoaaaaaaaaaaaaaaaarld</li>
+          <li>KKKKKKKKSFFSKKKKKKKKK</li>
+          <li>helloworlaaaaaaaaaaaaaaaaaaaad</li>
+          <li>helloworld</li>
+          <li>helloworld</li>
+          <li>helloafafsafsworld</li>
+          <li>helloworld</li>
+          <li>helloworld</li>
+          <li>helloworld</li>
+          <li>helloworld</li>
+        </Aside>
       </Main>
     </>
   );
