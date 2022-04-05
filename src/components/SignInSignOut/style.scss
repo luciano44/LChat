@@ -5,13 +5,14 @@
   @include flexCenter;
   margin-left: 30px;
 
-  button {
+  .btn {
+    text-decoration: none;
     border: none;
     margin-left: 5px;
     padding: 6px;
     border-radius: $border-radius;
     color: $second-color;
-    text-shadow: 0 0 5px gray;
+    text-shadow: 0 0 5px rgb(43, 43, 43);
     cursor: pointer;
 
     &:hover {

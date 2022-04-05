@@ -1,0 +1,26 @@
+@import "../../css/variables.scss";
+@import "../../css/mixins.scss";
+
+.aside a {
+  text-decoration: none;
+}
+
+.aside__user {
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  color: #555;
+  cursor: pointer;
+
+  margin-bottom: 1px;
+
+  span:nth-child(1) {
+    margin: 0 3px;
+  }
+  span:nth-child(2) {
+    padding-bottom: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

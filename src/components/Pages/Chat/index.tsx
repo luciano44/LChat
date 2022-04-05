@@ -1,22 +1,59 @@
 import "./style.scss";
+import Message from "../../Message";
+
 import React, { useRef, useEffect, useState, SyntheticEvent } from "react";
-import { MessagesType } from "../../../App";
+
+type MessagesType = {
+  author: string;
+  message: string;
+};
 
 type Props = {
   children: React.ReactNode;
   setMessages: React.Dispatch<React.SetStateAction<MessagesType[]>>;
 };
 
-function Index({ children, setMessages }: Props) {
+function Index() {
   const [shouldItScroll, setShouldItScroll] = useState(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesRef = useRef<HTMLUListElement>(null);
+  const [messages, setMessages] = useState<MessagesType[]>([
+    {
+      author: "Bob",
+      message:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
+    },
+
+    {
+      author: "iamtheone34",
+      message:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
+    },
+    {
+      author: "bob",
+      message:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
+    },
+  ]);
+  const limitOfMessages = 300;
 
   // automatically scrolls the chat to the bottom when comp. is rendered.
   useEffect(() => {
     messagesRef.current?.scrollBy(0, 9999);
     inputRef.current?.focus();
+
+    //auto message
+    // setInterval(() => {
+    //   setMessages((prev) => [
+    //     ...prev,
+    //     {
+    //       author: "Bob_51",
+    //       message:
+    //         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
+    //     },
+    //   ]);
+    // }, 1000);
   }, []);
 
   // scrolls the chat to the bottom at every new message if it's already scrolled next to the bottom.
@@ -49,6 +86,15 @@ function Index({ children, setMessages }: Props) {
     }
   });
 
+  // delete old messages
+  useEffect(() => {
+    if (messages.length > limitOfMessages) {
+      const newMessages = messages;
+      newMessages.splice(0, 50);
+      setMessages(() => [...newMessages]);
+    }
+  });
+
   function submitHandler(e: SyntheticEvent) {
     e.preventDefault();
     const message = inputRef.current?.value;
@@ -65,7 +111,9 @@ function Index({ children, setMessages }: Props) {
   return (
     <div className="section__chat">
       <ul ref={messagesRef} className="section__chat__messages">
-        {children}
+        {messages.map((msg, i) => (
+          <Message key={i} author={msg.author} message={msg.message} />
+        ))}
       </ul>
 
       <form onSubmit={submitHandler}>

@@ -1,0 +1,72 @@
+@import "../../../css/variables.scss";
+@import "../../../css/mixins.scss";
+
+.section__register {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  overflow-x: auto;
+
+  .notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+    color: hsla(0, 0%, 100%, 0.75);
+    text-shadow: 0 0 10px gray;
+    text-align: center;
+  }
+
+  .notification-success {
+    background: $signin-btn;
+  }
+  .notification-error {
+    background: $signout-btn;
+  }
+
+  img {
+    height: 85px;
+    margin: 30px auto;
+  }
+
+  form {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    max-width: 400px;
+    margin-bottom: 25px;
+
+    span {
+      margin-bottom: 2px;
+      color: #555;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 5px;
+      border: 1px solid $first-color;
+      font-size: 16px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      padding: 5px;
+      border-radius: $border-radius;
+      resize: none;
+    }
+  }
+
+  button {
+    margin-left: auto;
+    border: none;
+    padding: 6px;
+    border-radius: $border-radius;
+    color: $second-color;
+    text-shadow: 0 0 5px rgb(43, 43, 43);
+    background-color: $signin-btn;
+    width: 35%;
+    cursor: pointer;
+  }
+}

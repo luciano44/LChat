@@ -7,44 +7,32 @@ import {
   BsPeople,
   BsPeopleFill,
 } from "react-icons/bs";
+import { useLocation, Link } from "react-router-dom";
 
-function index() {
+function Index() {
+  const { pathname } = useLocation();
+
   return (
     <div className="side-menu">
       <ul>
-        {/* <li>
-          <a href="#">
-            <BsChatRight />
-          </a>
-        </li> */}
         <li>
-          <a href="#">
-            <BsChatRightFill />
-          </a>
+          <Link to="/chat">
+            {pathname !== "/chat" ? <BsChatRight /> : <BsChatRightFill />}
+          </Link>
         </li>
         <li>
-          <a href="#">
-            <BsPerson />
-          </a>
+          <Link to="/perfil">
+            {pathname !== "/perfil" ? <BsPerson /> : <BsPersonFill />}
+          </Link>
         </li>
-        {/* <li>
-          <a href="#">
-            <BsPersonFill />
-          </a>
-        </li> */}
         <li>
-          <a href="#">
-            <BsPeople />
-          </a>
+          <Link to="/usuarios">
+            {pathname !== "/usuarios" ? <BsPeople /> : <BsPeopleFill />}
+          </Link>
         </li>
-        {/* <li>
-          <a href="#">
-            <BsPeopleFill />
-          </a>
-        </li> */}
       </ul>
     </div>
   );
 }
 
-export default index;
+export default Index;

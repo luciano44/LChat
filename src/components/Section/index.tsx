@@ -1,16 +1,19 @@
 import "./style.scss";
 import backgroundLogo from "../../img/logos/background-logo/background-logo.png";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   children: React.ReactChildren | React.ReactNode;
-  title: "CHAT" | "PERFIL" | "USUÁRIOS" | "CADASTRE-SE" | "LOGIN" | "SOBRE";
 };
 
-function index({ children, title }: Props) {
+function Index({ children }: Props) {
+  const { pathname } = useLocation();
+  const path = pathname.split("/")[1].toUpperCase();
+
   return (
     <section className="section">
       <header>
-        <span>{title}</span>
+        <span>{path}</span>
       </header>
       <div className="section__wrapper">
         <img
@@ -24,4 +27,4 @@ function index({ children, title }: Props) {
   );
 }
 
-export default index;
+export default Index;

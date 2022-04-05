@@ -2,6 +2,7 @@ import "./style.scss";
 import { BsInfoLg } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
 import { GrLinkedinOption } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 function index() {
   return (
@@ -19,10 +20,10 @@ function index() {
         </a>
       </li>
       <li>
-        <a className="header__link" href="#">
+        <Link to="/sobre" className="header__link">
           <BsInfoLg />
           <span>Sobre</span>
-        </a>
+        </Link>
       </li>
     </ul>
   );

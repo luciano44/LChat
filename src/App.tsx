@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // components
 import Main from "./components/Main";
@@ -6,109 +6,52 @@ import Header from "./components/Header";
 import Section from "./components/Section";
 import Aside from "./components/Aside";
 import SideMenu from "./components/SideMenu";
-import Message from "./components/Message";
 import Links from "./components/Links";
 import SignInSignOut from "./components/SignInSignOut";
+import User from "./components/User";
 
 // page components
 import Chat from "./components/Pages/Chat";
+import Profile from "./components/Pages/Profile";
+import Users from "./components/Pages/Users";
+import Register from "./components/Pages/Register";
+import Login from "./components/Pages/Login";
+import About from "./components/Pages/About";
 
 // css
 import "./css/App.scss";
 
-export type MessagesType = {
-  author: string;
-  message: string;
-};
-
 function App() {
-  const [limitOfMessages, setLimitOfMessages] = useState(300);
-  const [messages, setMessages] = useState<MessagesType[]>([
-    {
-      author: "Bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
-    },
-    {
-      author: "johnydep",
-      message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-    },
-    {
-      author: "iamtheone34",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-    {
-      author: "bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae ",
-    },
-    {
-      author: "johnydep",
-      message: "Lorem ipsum dolor",
-    },
-    {
-      author: "iamtheone34",
-      message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-    },
-    {
-      author: "bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi ",
-    },
-    {
-      author: "johnydep",
-      message: "Lorem",
-    },
-    {
-      author: "iamtheone34",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-    {
-      author: "bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-  ]);
-
-  // delete old messages
-  useEffect(() => {
-    if (messages.length > limitOfMessages) {
-      const newMessages = messages;
-      newMessages.splice(0, 50);
-      setMessages((prev) => [...newMessages]);
-    }
-  });
-
   return (
     <>
-      <Header>
-        <Links />
-        <SignInSignOut loggedIn={false} />
-      </Header>
-      <Main>
-        <SideMenu />
-        <Section title="CHAT">
-          <Chat setMessages={setMessages}>
-            {messages.map((msg, i) => (
-              <Message key={i} author={msg.author} message={msg.message} />
-            ))}
-          </Chat>
-        </Section>
-        <Aside>
-          <li>hellowoaaaaaaaaaaaaaaaarld</li>
-          <li>KKKKKKKKSFFSKKKKKKKKK</li>
-          <li>helloworlaaaaaaaaaaaaaaaaaaaad</li>
-          <li>helloworld</li>
-          <li>helloworld</li>
-          <li>helloafafsafsworld</li>
-          <li>helloworld</li>
-          <li>helloworld</li>
-          <li>helloworld</li>
-          <li>helloworld</li>
-        </Aside>
-      </Main>
+      <Router>
+        <Header>
+          <Links />
+          <SignInSignOut loggedIn={false} />
+        </Header>
+        <Main>
+          <SideMenu />
+          <Section>
+            <Routes>
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/perfil" element={<Profile />} />
+              <Route path="/usuarios" element={<Users />} />
+              <Route path="/entrar" element={<Login />} />
+              <Route path="/cadastrar" element={<Register />} />
+              <Route path="/sobre" element={<About />} />
+              <Route path="/sair" element={<>sair **</>} />
+            </Routes>
+          </Section>
+          <Aside>
+            <User name="bob11" />
+            <User name="miky" />
+            <User name="@whydoesmynamegottabysobig" />
+            <User name="21_miky" />
+            <User name="the biggest name in the entire world" />
+            <User name="Bob32!!_" />
+          </Aside>
+        </Main>
+      </Router>
     </>
   );
 }
