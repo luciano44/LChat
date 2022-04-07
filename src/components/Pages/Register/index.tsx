@@ -1,7 +1,7 @@
 import "./style.scss";
 import logo from "../../../img/logos/normal-size-logos/logo-dark.svg";
 
-const index = () => {
+const Register = () => {
   return (
     <div className="section__register">
       <div className="notification notification-success">
@@ -26,4 +26,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Register;

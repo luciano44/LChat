@@ -11,3 +11,26 @@
   background-color: $second-color;
   box-shadow: 0 0 5px hsla(219, 75%, 20%, 0.1);
 }
+
+@mixin notification {
+  .notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+    color: hsla(0, 0%, 100%, 0.75);
+    text-shadow: 0 0 10px gray;
+    text-align: center;
+    filter: opacity(0);
+  }
+
+  .notification-success {
+    background: $signin-btn;
+    filter: opacity(1);
+  }
+  .notification-error {
+    background: $signout-btn;
+    filter: opacity(1);
+  }
+}

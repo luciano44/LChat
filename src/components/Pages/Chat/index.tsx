@@ -13,7 +13,7 @@ type Props = {
   setMessages: React.Dispatch<React.SetStateAction<MessagesType[]>>;
 };
 
-function Index() {
+function Chat() {
   const [shouldItScroll, setShouldItScroll] = useState(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -126,4 +126,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Chat;

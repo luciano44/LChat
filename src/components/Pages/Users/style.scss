@@ -1,0 +1,49 @@
+@import "../../../css/variables.scss";
+@import "../../../css/mixins.scss";
+
+.section__users {
+  position: absolute;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  overflow-x: auto;
+
+  .user {
+    @include flexCenter;
+    flex-direction: column;
+    flex: 1 1 200px;
+    list-style: none;
+    border: 1px solid lightgray;
+    background-color: rgba(211, 211, 211, 0.15);
+    width: fit-content;
+    padding: 10px 0;
+    padding-left: 5%;
+    border-radius: $border-radius;
+    margin: 5px 5px 0 0;
+    max-height: 125px;
+  }
+
+  p {
+    color: #777;
+    margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  p:nth-child(1) {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  p:nth-child(1),
+  span {
+    color: #333;
+  }
+
+  .invisible {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+}

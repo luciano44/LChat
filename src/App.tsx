@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 // components
 import Main from "./components/Main";
@@ -8,7 +13,6 @@ import Aside from "./components/Aside";
 import SideMenu from "./components/SideMenu";
 import Links from "./components/Links";
 import SignInSignOut from "./components/SignInSignOut";
-import User from "./components/User";
 
 // page components
 import Chat from "./components/Pages/Chat";
@@ -30,11 +34,24 @@ function App() {
           <SignInSignOut loggedIn={false} />
         </Header>
         <Main>
-          <SideMenu />
+          <SideMenu loggedIn={true} />
           <Section>
             <Routes>
+              <Route path="/" element={<Navigate to="/chat" />} />
               <Route path="/chat" element={<Chat />} />
-              <Route path="/perfil" element={<Profile />} />
+              <Route
+                path="/perfil"
+                element={
+                  <Profile
+                    user={{
+                      username: "Luciano",
+                      age: 25,
+                      profession: "programmer",
+                      interests: "soccer, volleyball, programming....",
+                    }}
+                  />
+                }
+              />
               <Route path="/usuarios" element={<Users />} />
               <Route path="/entrar" element={<Login />} />
               <Route path="/cadastrar" element={<Register />} />
@@ -42,14 +59,7 @@ function App() {
               <Route path="/sair" element={<>sair **</>} />
             </Routes>
           </Section>
-          <Aside>
-            <User name="bob11" />
-            <User name="miky" />
-            <User name="@whydoesmynamegottabysobig" />
-            <User name="21_miky" />
-            <User name="the biggest name in the entire world" />
-            <User name="Bob32!!_" />
-          </Aside>
+          <Aside />
         </Main>
       </Router>
     </>

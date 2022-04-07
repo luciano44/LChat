@@ -3,8 +3,8 @@ import React from "react";
 
 type Props = { children: React.ReactNode };
 
-function index({ children }: Props) {
+function Main({ children }: Props) {
   return <div className="main">{children}</div>;
 }
 
-export default index;
+export default Main;

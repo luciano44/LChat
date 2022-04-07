@@ -1,0 +1,33 @@
+@import "../../../css/variables.scss";
+
+.section__profile {
+  position: relative;
+  padding: 25px;
+
+  .title {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .box {
+    border: 1px solid lightgray;
+    background-color: rgba(211, 211, 211, 0.15);
+    margin: 5px 0 15px;
+    padding: 10px;
+    border-radius: $border-radius;
+
+    p {
+      font-size: 0.8rem;
+      color: #555;
+
+      span {
+        color: #333;
+        font-size: 1rem;
+        margin-left: 8px;
+      }
+      .almost-invisible {
+        filter: opacity(0.25);
+      }
+    }
+  }
+}

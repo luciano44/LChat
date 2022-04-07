@@ -4,7 +4,7 @@ import { FiGithub } from "react-icons/fi";
 import { GrLinkedinOption } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
-function index() {
+function Links() {
   return (
     <ul className="header__links">
       <li>
@@ -29,4 +29,4 @@ function index() {
   );
 }
 
-export default index;
+export default Links;

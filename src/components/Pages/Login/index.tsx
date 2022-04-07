@@ -1,5 +1,23 @@
-const index = () => {
-  return <div>login</div>;
+import "./style.scss";
+import logo from "../../../img/logos/normal-size-logos/logo-dark.svg";
+
+const Login = () => {
+  return (
+    <div className="section__login">
+      <div className="notification notification-error">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, ab.
+      </div>
+      <img src={logo} alt="logo" />
+      <form>
+        <span>Login</span>
+        <input type="text" maxLength={30} />
+        <span>Senha</span>
+        <input type="password" maxLength={30} />
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  );
 };
 
-export default index;
+export default Login;

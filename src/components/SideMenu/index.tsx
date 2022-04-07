@@ -9,7 +9,9 @@ import {
 } from "react-icons/bs";
 import { useLocation, Link } from "react-router-dom";
 
-function Index() {
+type Props = { loggedIn: boolean };
+
+function SideMenu({ loggedIn }: Props) {
   const { pathname } = useLocation();
 
   return (
@@ -20,11 +22,13 @@ function Index() {
             {pathname !== "/chat" ? <BsChatRight /> : <BsChatRightFill />}
           </Link>
         </li>
-        <li>
-          <Link to="/perfil">
-            {pathname !== "/perfil" ? <BsPerson /> : <BsPersonFill />}
-          </Link>
-        </li>
+        {loggedIn && (
+          <li>
+            <Link to="/perfil">
+              {pathname !== "/perfil" ? <BsPerson /> : <BsPersonFill />}
+            </Link>
+          </li>
+        )}
         <li>
           <Link to="/usuarios">
             {pathname !== "/usuarios" ? <BsPeople /> : <BsPeopleFill />}
@@ -35,4 +39,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default SideMenu;

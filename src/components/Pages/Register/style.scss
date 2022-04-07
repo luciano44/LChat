@@ -11,23 +11,7 @@
   padding: 10px;
   overflow-x: auto;
 
-  .notification {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 5px;
-    width: 100%;
-    color: hsla(0, 0%, 100%, 0.75);
-    text-shadow: 0 0 10px gray;
-    text-align: center;
-  }
-
-  .notification-success {
-    background: $signin-btn;
-  }
-  .notification-error {
-    background: $signout-btn;
-  }
+  @include notification;
 
   img {
     height: 85px;
@@ -42,17 +26,24 @@
     margin-bottom: 25px;
 
     span {
-      margin-bottom: 2px;
-      color: #555;
+      position: relative;
+      top: 5px;
+      left: 10px;
+      background-color: #fff;
+      padding: 0 3px;
+      width: fit-content;
+      color: $first-color;
+      line-height: 10px;
+      font-size: 0.8rem;
     }
 
     input,
     textarea {
-      margin-bottom: 5px;
+      margin-bottom: 15px;
       border: 1px solid $first-color;
       font-size: 16px;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      padding: 5px;
+      padding: 8px;
       border-radius: $border-radius;
       resize: none;
     }
@@ -61,11 +52,11 @@
   button {
     margin-left: auto;
     border: none;
-    padding: 6px;
+    padding: 7px;
     border-radius: $border-radius;
     color: $second-color;
     text-shadow: 0 0 5px rgb(43, 43, 43);
-    background-color: $signin-btn;
+    background: $first-color;
     width: 35%;
     cursor: pointer;
   }

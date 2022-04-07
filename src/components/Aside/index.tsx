@@ -1,19 +1,23 @@
 import "./style.scss";
+import UserOnline from "../UserOnline";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-function index({ children }: Props) {
+function Aside() {
   return (
     <aside className="aside">
       <header>
         <span>Online</span>
-        <span>4</span>
+        <span>6</span>
       </header>
-      <ul className="aside__users-online">{children}</ul>
+      <ul className="aside__users-online">
+        <UserOnline name="bob11" />
+        <UserOnline name="miky" />
+        <UserOnline name="@whydoesmynamegottabysobig" />
+        <UserOnline name="21_miky" />
+        <UserOnline name="the biggest name in the entire world" />
+        <UserOnline name="Bob32!!_" />
+      </ul>
     </aside>
   );
 }
 
-export default index;
+export default Aside;

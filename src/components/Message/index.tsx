@@ -6,7 +6,7 @@ type Props = {
   message: string;
 };
 
-function index({ author, message }: Props) {
+function Message({ author, message }: Props) {
   return (
     <li className="section__chat__message">
       <p>
@@ -17,4 +17,4 @@ function index({ author, message }: Props) {
   );
 }
 
-export default index;
+export default Message;

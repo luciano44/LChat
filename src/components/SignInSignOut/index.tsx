@@ -5,7 +5,7 @@ type Props = {
   loggedIn: boolean;
 };
 
-function index({ loggedIn }: Props) {
+function SignInSignOut({ loggedIn }: Props) {
   return (
     <div className="header__buttons">
       {loggedIn ? (
@@ -18,7 +18,7 @@ function index({ loggedIn }: Props) {
             Entrar
           </Link>
           <Link to="/cadastrar" className="btn signup">
-            Cadastrar
+            Cadastre-se
           </Link>
         </>
       )}
@@ -26,4 +26,4 @@ function index({ loggedIn }: Props) {
   );
 }
 
-export default index;
+export default SignInSignOut;

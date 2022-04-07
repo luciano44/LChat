@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactChildren | React.ReactNode;
 };
 
-function Index({ children }: Props) {
+function Section({ children }: Props) {
   const { pathname } = useLocation();
   const path = pathname.split("/")[1].toUpperCase();
 
@@ -27,4 +27,4 @@ function Index({ children }: Props) {
   );
 }
 
-export default Index;
+export default Section;

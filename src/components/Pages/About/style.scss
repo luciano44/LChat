@@ -1,0 +1,80 @@
+.section__about {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .logo {
+    height: 100px;
+    width: 500px;
+    background: GRAY;
+  }
+
+  span {
+    color: #333;
+  }
+
+  .technologies {
+    position: relative;
+    left: -50%;
+    display: flex;
+    height: 100px;
+    padding: 0;
+    transition: 5s;
+    align-items: center;
+    animation: roll 20s infinite linear;
+
+    .technology {
+      display: flex;
+      transition: 5s;
+      flex-shrink: 0;
+      height: 100px;
+      width: 100px;
+      background: red;
+      margin: 2px;
+    }
+
+    .invisible {
+      height: 0;
+      border: 0;
+      filter: opacity(0);
+    }
+  }
+  .gif {
+    position: relative;
+    border: 1px solid #555;
+    animation: tremble 0.01s infinite linear;
+  }
+}
+
+@keyframes tremble {
+  0% {
+    top: 1px;
+    left: -1px;
+    transform: rotate(-1deg);
+  }
+  33% {
+    top: -1px;
+    left: -1px;
+    transform: rotate(1deg);
+  }
+  66% {
+    top: -1px;
+    left: 1px;
+    transform: rotate(-1deg);
+  }
+  100% {
+    top: 1px;
+    left: 1px;
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes roll {
+  to {
+    transform: translateX(50%);
+  }
+}

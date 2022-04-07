@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 type Name = { name: string };
 
-function index({ name }: Name) {
+function UserOnline({ name }: Name) {
   return (
     <Link to={`perfil/${name}`}>
       <li title={name} className="aside__user">
@@ -18,4 +18,4 @@ function index({ name }: Name) {
   );
 }
 
-export default index;
+export default UserOnline;
