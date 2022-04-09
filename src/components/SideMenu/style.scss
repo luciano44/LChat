@@ -1,6 +1,15 @@
 @import "../../css/variables.scss";
 @import "../../css/mixins.scss";
 
+.side-menu-wrapper {
+  display: flex;
+
+  .header__buttons {
+    display: none;
+    margin-left: auto;
+  }
+}
+
 .side-menu {
   @include flexCenter;
   @include boxStyle;
@@ -14,6 +23,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    // display: flex;
 
     li {
       height: 22px;
@@ -32,5 +42,18 @@
         font-size: 22px;
       }
     }
+  }
+}
+
+@media (max-width: $responsivity1) {
+  .side-menu {
+    width: fit-content;
+  }
+  .side-menu ul {
+    display: flex;
+    align-items: center;
+  }
+  .side-menu-wrapper .header__buttons {
+    display: flex;
   }
 }

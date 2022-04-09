@@ -1,8 +1,8 @@
 // ************************* COLORS
 
-$first-color: #0d2759;
-$second-color: white;
-$third-color: #f1f1f1;
+$first-color: hsl(219, 25%, 20%);
+$second-color: #eff1f5;
+$third-color: hsl(219, 25%, 80%);
 
 // links
 $link-color: #fff;
@@ -12,8 +12,12 @@ $signin-btn: rgb(0, 200, 0);
 $signup-btn: transparent;
 $signout-btn: rgb(200, 0, 0);
 
-$border-color: #c2c9d5;
+$border-color: hsl(218, 18%, 60%);
 $border-radius: 5px;
 
 // text
-$header-text: hsl(219, 75%, 90%);
+$header-text: rgba(210, 224, 249, 0.75);
+
+//responsivity
+$responsivity1: 680px;
+$responsivity2: 500px;

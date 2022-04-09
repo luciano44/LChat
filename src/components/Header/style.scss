@@ -3,11 +3,11 @@
 
 .header {
   @include flexCenter;
+  position: relative;
   width: 100%;
   height: 75px;
   background-color: $first-color;
   box-shadow: 0 0 5px hsla(219, 75%, 20%, 0.1);
-  border-bottom: 1px solid black;
 }
 
 .header__wrapper {
@@ -17,9 +17,42 @@
 }
 
 .header__logo {
+  @include flexCenter;
   &:hover {
     animation: rotate 0.5s infinite alternate ease-in-out;
   }
+}
+
+.header__menu-btn {
+  @include flexCenter;
+  background: transparent;
+  display: none;
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  padding: 10px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+  &:active {
+    filter: brightness(1.2);
+  }
+}
+
+.header__menu {
+  position: absolute;
+  top: 100%;
+  padding: 25px;
+  width: 100%;
+  background: gray;
+  display: none;
+  z-index: 999;
 }
 
 @keyframes rotate {
@@ -28,5 +61,32 @@
   }
   100% {
     transform: rotate(3deg);
+  }
+}
+
+// RESPONSIVITY
+
+@media (max-width: $responsivity2) {
+  .header__menu {
+    display: flex;
+    background-color: $first-color;
+    border-top: 1px solid #222;
+
+    .header__links {
+      display: flex;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .header__link {
+      margin: 0;
+      padding: 5px;
+    }
+  }
+  .header__menu-btn {
+    display: flex;
   }
 }

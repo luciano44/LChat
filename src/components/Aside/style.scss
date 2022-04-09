@@ -14,7 +14,7 @@
   header {
     @include flexCenter;
     color: $link-color;
-    height: 34px;
+    min-height: 35px;
     background: $first-color;
     user-select: none;
 
@@ -33,4 +33,12 @@
 
 .aside__users-online {
   padding: 5px;
+}
+
+// RESPONSIVITY
+
+@media (max-width: $responsivity1) {
+  .aside {
+    margin-left: 0;
+  }
 }

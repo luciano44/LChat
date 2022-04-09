@@ -16,10 +16,13 @@
     background: $second-color;
     bottom: 0;
     padding: 10px;
+    display: flex;
 
     input {
       box-shadow: 0 0 3px lightgray;
-      flex: 1 1 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 100px;
       font-size: 1.1rem;
       border: 1px solid $first-color;
       border-radius: $border-radius;
@@ -43,6 +46,7 @@
   width: 100%;
   flex-grow: 1;
   padding: 0;
+  padding-top: 15px;
 
   li {
     list-style: none;

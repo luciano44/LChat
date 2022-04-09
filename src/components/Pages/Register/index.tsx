@@ -1,5 +1,5 @@
 import "./style.scss";
-import logo from "../../../img/logos/normal-size-logos/logo-dark.svg";
+import logo from "../../../img/logos/svg/logo-dark.svg";
 
 const Register = () => {
   return (

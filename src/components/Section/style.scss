@@ -40,3 +40,11 @@
   user-select: none;
   -webkit-user-drag: none;
 }
+
+// RESPONSIVITY
+
+@media (max-width: $responsivity1) {
+  .section {
+    margin-left: 0;
+  }
+}

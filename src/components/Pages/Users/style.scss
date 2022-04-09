@@ -9,15 +9,15 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
-  overflow-x: auto;
+  overflow-y: auto;
 
   .user {
     @include flexCenter;
     flex-direction: column;
     flex: 1 1 200px;
     list-style: none;
-    border: 1px solid lightgray;
-    background-color: rgba(211, 211, 211, 0.15);
+    // border: 1px solid lightgray;
+    background-color: rgba(211, 211, 211, 0.4);
     width: fit-content;
     padding: 10px 0;
     padding-left: 5%;

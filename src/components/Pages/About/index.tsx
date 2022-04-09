@@ -1,46 +1,78 @@
 import "./style.scss";
-import { useRef } from "react";
-import meme from "../../../img/logos/gif/meme.gif";
+import reactLogo from "../../../img/logos/technologies/react.png";
+import sassLogo from "../../../img/logos/technologies/sass.png";
+import tsLogo from "../../../img/logos/technologies/ts.png";
+import mongoLogo from "../../../img/logos/technologies/mongo.png";
+import nodeLogo from "../../../img/logos/technologies/node.png";
+import socketioLogo from "../../../img/logos/technologies/socketio.png";
+import logo from "../../../img/logos/svg/lr-logo-link.svg";
+import { BsHandIndexThumb } from "react-icons/bs";
 
 const About = () => {
-  const technologiesRef = useRef<HTMLDivElement>(null);
-
   return (
     <div className="section__about">
-      <img src="#" alt="logo" className="logo" />
-      <i>Tecnologias utilizadas</i>
+      <a href="http://github.com/luciano44" className="logo" target="_blank">
+        <img src={logo} alt="logo" />
+      </a>
+      <span>
+        <BsHandIndexThumb className="icon rotated" />
+        Sobre
+      </span>
+      <p>
+        Chat App criado exclusivamente para o portfolio{" "}
+        <a href="https://luciano44.github.io/">luciano44</a> para demonstração.
+      </p>
+
+      <span>
+        <BsHandIndexThumb className="icon rotated" />
+        Utilizados no projeto
+      </span>
 
       <ul className="technologies">
-        <div className="technology">aaaaaaaaaaaaaaa</div>
-        <div className="technology">b</div>
-        <div className="technology">c</div>
-        <div className="technology">d</div>
-        <div className="technology">e</div>
-        <div className="technology">f</div>
-        <div className="technology">ggggggggg</div>
-        <div className="technology">h</div>
-        <div className="technology">i</div>
-        <div className="technology">j</div>
-        <div className="technology">k</div>
-        <div className="technology">l</div>
-        <div className="technology">m</div>
+        <div className="technology">
+          <img src={tsLogo} alt="typescript logo" />
+        </div>
+        <div className="technology">
+          <img src={reactLogo} alt="react logo" />
+        </div>
+        <div className="technology">
+          <img src={sassLogo} alt="sass logo" />
+        </div>
+        <div className="technology">
+          <img src={nodeLogo} alt="node logo" />
+        </div>
+        <div className="technology">
+          <img src={mongoLogo} alt="mongoDB logo" />
+        </div>
+        <div className="technology">
+          <img src={socketioLogo} alt="socket.io logo" />
+        </div>
+
         {/*  */}
-        <div className="technology">a</div>
-        <div className="technology">b</div>
-        <div className="technology">c</div>
-        <div className="technology">d</div>
-        <div className="technology">e</div>
-        <div className="technology">f</div>
-        <div className="technology">g</div>
-        <div className="technology">h</div>
-        <div className="technology">i</div>
-        <div className="technology">j</div>
-        <div className="technology">k</div>
-        <div className="technology">l</div>
-        <div className="technology">m</div>
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+
+        <div className="technology">
+          <img src={tsLogo} alt="typescript logo" />
+        </div>
+        <div className="technology">
+          <img src={reactLogo} alt="react logo" />
+        </div>
+        <div className="technology">
+          <img src={sassLogo} alt="sass logo" />
+        </div>
+        <div className="technology">
+          <img src={nodeLogo} alt="node logo" />
+        </div>
+        <div className="technology">
+          <img src={mongoLogo} alt="mongoDB logo" />
+        </div>
+        <div className="technology">
+          <img src={socketioLogo} alt="socket.io logo" />
+        </div>
       </ul>
-      <i>Obrigado pela visita :)</i>
-      <img src={meme} alt="logo" className="gif" />
     </div>
   );
 };

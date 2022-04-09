@@ -36,3 +36,11 @@
     width: 100%;
   }
 }
+
+// RESPONSIVITY
+
+@media (max-width: $responsivity2) {
+  .header__links {
+    display: none;
+  }
+}

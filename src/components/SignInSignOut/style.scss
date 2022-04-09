@@ -12,8 +12,8 @@
     padding: 3px 8px;
     border-radius: $border-radius;
     color: $second-color;
-    text-shadow: 1px 1px 2px gray;
-    border: 1px solid #333;
+    text-shadow: 1px 1px 5px rgb(78, 78, 78);
+    white-space: pre;
 
     cursor: pointer;
 
@@ -31,5 +31,19 @@
   }
   .signout {
     background-color: $signout-btn;
+  }
+}
+
+// RESPONSIVITY
+
+@media (max-width: $responsivity1) {
+  .header .header__buttons {
+    display: none;
+  }
+  .header__buttons {
+    .btn.signup {
+      background-color: $first-color;
+      border: none;
+    }
   }
 }
