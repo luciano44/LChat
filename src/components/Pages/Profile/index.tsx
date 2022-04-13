@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { usersContext } from "../../../context/Context";
 import "./style.scss";
 
 type Props = {
@@ -10,27 +12,30 @@ type Props = {
 };
 
 function Profile({ user: { username, age, profession, interests } }: Props) {
+  const ctx = useContext(usersContext);
+  const profileInfo = ctx?.profileInfo;
+
   return (
     <div className="section__profile">
       <div className="title">
-        Perfil do <span>{username}</span>
+        Perfil do <span>{profileInfo?.name}</span>
       </div>
       <div className="box">
         <p>
           Nome:<span className="almost-invisible">. . .</span>
-          <span>{username}</span>
+          <span>{profileInfo?.name}</span>
         </p>
         <p>
           Idade: <span className="almost-invisible"> . . .</span>
-          <span>{age}</span>
+          <span>{profileInfo?.age}</span>
         </p>
         <p>
           Profissão:<span className="almost-invisible">.</span>
-          <span>{profession}</span>
+          <span>{profileInfo?.profession}</span>
         </p>
       </div>
       <div className="title">Interesses</div>
-      <div className="box">{interests}</div>
+      <div className="box">{profileInfo?.interests}</div>
     </div>
   );
 }

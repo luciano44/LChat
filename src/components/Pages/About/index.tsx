@@ -19,8 +19,8 @@ const About = () => {
         Sobre
       </span>
       <p>
-        Chat App criado exclusivamente para o portfolio{" "}
-        <a href="https://luciano44.github.io/">luciano44</a> para demonstração.
+        Chat App criado para o portfolio{" "}
+        <a href="https://luciano44.github.io/">luciano44</a>.
       </p>
 
       <span>

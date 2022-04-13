@@ -8,6 +8,7 @@ type Props = {
 
 function Section({ children }: Props) {
   const { pathname } = useLocation();
+  console.log(pathname);
   const path = pathname.split("/")[1].toUpperCase();
 
   return (

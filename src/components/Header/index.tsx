@@ -22,11 +22,9 @@ function Header({ children }: Props) {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <a href="#">
-          <Link to="/chat">
-            <img src={logo} alt="Logo" className="header__logo" />
-          </Link>
-        </a>
+        <Link to="/chat">
+          <img src={logo} alt="Logo" className="header__logo" />
+        </Link>
         {children}
         <button onClick={btnHandler} className="header__menu-btn">
           <img
@@ -39,6 +37,7 @@ function Header({ children }: Props) {
       {isMenuOpened && (
         <div onClick={btnHandler} className="header__menu">
           <Links />
+          <button className="invisible-btn"></button>
         </div>
       )}
     </header>

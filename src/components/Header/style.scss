@@ -53,6 +53,18 @@
   background: gray;
   display: none;
   z-index: 999;
+  box-shadow: 0 5px 5px rgba(51, 51, 51, 0.5);
+
+  .invisible-btn {
+    top: 100%;
+    left: 0;
+    position: absolute;
+    height: 80vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+  }
 }
 
 @keyframes rotate {

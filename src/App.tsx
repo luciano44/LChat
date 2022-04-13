@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useState, useContext } from "react";
 
 // components
 import Main from "./components/Main";
@@ -22,46 +23,73 @@ import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import About from "./components/Pages/About";
 
+//context
+import Context from "./context/Context";
+
 // css
 import "./css/App.scss";
 
+type User = {
+  name: String;
+  age: Number;
+  profession: String;
+  interests: String;
+};
+
 function App() {
+  const [usersOnline, setUsersOnline] = useState<User[]>([
+    {
+      name: "Josh",
+      age: 32,
+      profession: "programmer",
+      interests: "playing soccer and programming ",
+    },
+    {
+      name: "Bob",
+      age: 12,
+      profession: "pro skateboarder",
+      interests: "skating is my passion ",
+    },
+  ]);
+
   return (
     <>
-      <Router>
-        <Header>
-          <Links />
-          <SignInSignOut loggedIn={false} />
-        </Header>
-        <Main>
-          <SideMenu loggedIn={true} />
-          <Section>
-            <Routes>
-              <Route path="/" element={<Navigate to="/chat" />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route
-                path="/perfil"
-                element={
-                  <Profile
-                    user={{
-                      username: "Luciano",
-                      age: 25,
-                      profession: "programmer",
-                      interests: "soccer, volleyball, programming....",
-                    }}
-                  />
-                }
-              />
-              <Route path="/usuarios" element={<Users />} />
-              <Route path="/entrar" element={<Login />} />
-              <Route path="/cadastrar" element={<Register />} />
-              <Route path="/sobre" element={<About />} />
-              <Route path="/sair" element={<>sair **</>} />
-            </Routes>
-          </Section>
-          <Aside />
-        </Main>
-      </Router>
+      <Context>
+        <Router>
+          <Header>
+            <Links />
+            <SignInSignOut loggedIn={false} />
+          </Header>
+          <Main>
+            <SideMenu loggedIn={true} />
+            <Section>
+              <Routes>
+                <Route path="/" element={<Navigate to="/chat" />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route
+                  path="/perfil"
+                  element={
+                    <Profile
+                      user={{
+                        username: "Luciano",
+                        age: 25,
+                        profession: "programmer",
+                        interests: "soccer, volleyball, programming....",
+                      }}
+                    />
+                  }
+                />
+                <Route path="/usuarios" element={<Users />} />
+                <Route path="/entrar" element={<Login />} />
+                <Route path="/cadastrar" element={<Register />} />
+                <Route path="/sobre" element={<About />} />
+                <Route path="/sair" element={<>sair **</>} />
+              </Routes>
+            </Section>
+            <Aside />
+          </Main>
+        </Router>
+      </Context>
     </>
   );
 }
