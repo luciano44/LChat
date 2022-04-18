@@ -1,15 +1,10 @@
 import { useContext } from "react";
-
-import "./style.scss";
 import UserOnline from "../UserOnline";
-
-//context
 import { usersContext } from "../../context/Context";
+import "./style.scss";
 
 function Aside() {
-  const ctx = useContext(usersContext);
-
-  const usersOnline = ctx?.usersOnline;
+  const { usersOnline } = useContext(usersContext)!;
 
   return (
     <aside className="aside">
@@ -18,8 +13,8 @@ function Aside() {
         <span>6</span>
       </header>
       <ul className="aside__users-online">
-        {usersOnline?.map((user: any) => (
-          <UserOnline name={user.name} />
+        {usersOnline?.map((user, i) => (
+          <UserOnline key={i} name={user.name} />
         ))}
       </ul>
     </aside>

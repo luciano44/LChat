@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ type User = {
 
 export const usersContext = createContext<{
   usersOnline: User[];
-  profileInfo: User;
+  jwt: string;
 } | null>(null);
 
 const Context = ({ children }: Props) => {
@@ -25,7 +25,7 @@ const Context = ({ children }: Props) => {
       interests: "soccer,golf,programming...",
     },
     {
-      name: "Claire Defan",
+      name: "Claire        Defan",
       age: 12,
       profession: "jobs asd 3aosif",
       interests: "nothing...",
@@ -37,15 +37,10 @@ const Context = ({ children }: Props) => {
       interests: "cafe ,programming ahh322..",
     },
   ]);
-  const [profileInfo, setProfileInfo] = useState<User>({
-    name: "Luciano44",
-    age: 25,
-    profession: "Programmer",
-    interests: "Programming, eating, sleeping and jogging.",
-  });
+  const [jwt, setJwt] = useState<string>("aosdiadsosad");
 
   return (
-    <usersContext.Provider value={{ usersOnline, profileInfo }}>
+    <usersContext.Provider value={{ usersOnline, jwt }}>
       {children}
     </usersContext.Provider>
   );

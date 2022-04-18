@@ -2,18 +2,20 @@ import { useContext } from "react";
 import { usersContext } from "../../../context/Context";
 import "./style.scss";
 
-type Props = {
-  user: {
-    username: string;
-    age: number;
-    profession: string;
-    interests: string;
-  };
-};
-
-function Profile({ user: { username, age, profession, interests } }: Props) {
+function Profile() {
   const ctx = useContext(usersContext);
   const profileInfo = ctx?.profileInfo;
+
+  /**************************
+  /**************************
+  /**************************
+   * 
+   // UPDATE!!!!!!!!!!!! -> grab user on endpoint with useLocation and search for his data on database to populate component
+
+   /**************************
+   /**************************
+   /**************************
+   */
 
   return (
     <div className="section__profile">

@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useEffect } from "react";
 
 // components
 import Main from "./components/Main";
@@ -29,29 +29,16 @@ import Context from "./context/Context";
 // css
 import "./css/App.scss";
 
-type User = {
-  name: String;
-  age: Number;
-  profession: String;
-  interests: String;
-};
+//
+
+// import { io } from "socket.io-client";
+// const socket = io("http://localhost:3001");
+
+// useEffect(() => {
+
+// })
 
 function App() {
-  const [usersOnline, setUsersOnline] = useState<User[]>([
-    {
-      name: "Josh",
-      age: 32,
-      profession: "programmer",
-      interests: "playing soccer and programming ",
-    },
-    {
-      name: "Bob",
-      age: 12,
-      profession: "pro skateboarder",
-      interests: "skating is my passion ",
-    },
-  ]);
-
   return (
     <>
       <Context>
@@ -66,19 +53,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/chat" />} />
                 <Route path="/chat" element={<Chat />} />
-                <Route
-                  path="/perfil"
-                  element={
-                    <Profile
-                      user={{
-                        username: "Luciano",
-                        age: 25,
-                        profession: "programmer",
-                        interests: "soccer, volleyball, programming....",
-                      }}
-                    />
-                  }
-                />
+                <Route path="/perfil" element={<Profile />} />
                 <Route path="/usuarios" element={<Users />} />
                 <Route path="/entrar" element={<Login />} />
                 <Route path="/cadastrar" element={<Register />} />
