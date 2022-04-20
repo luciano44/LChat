@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import { useEffect } from "react";
+import { io } from "socket.io-client";
 
 // components
 import Main from "./components/Main";
@@ -28,15 +29,6 @@ import Context from "./context/Context";
 
 // css
 import "./css/App.scss";
-
-//
-
-// import { io } from "socket.io-client";
-// const socket = io("http://localhost:3001");
-
-// useEffect(() => {
-
-// })
 
 function App() {
   return (

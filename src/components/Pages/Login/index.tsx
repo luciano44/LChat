@@ -9,7 +9,7 @@ const Login = () => {
       </div>
       <img src={logo} alt="logo" />
       <form>
-        <span>Login</span>
+        <span>Nome</span>
         <input type="text" maxLength={30} />
         <span>Senha</span>
         <input type="password" maxLength={30} />

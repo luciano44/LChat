@@ -1,11 +1,6 @@
-import { useContext } from "react";
-import { usersContext } from "../../../context/Context";
 import "./style.scss";
 
 function Profile() {
-  const ctx = useContext(usersContext);
-  const profileInfo = ctx?.profileInfo;
-
   /**************************
   /**************************
   /**************************
@@ -20,24 +15,24 @@ function Profile() {
   return (
     <div className="section__profile">
       <div className="title">
-        Perfil do <span>{profileInfo?.name}</span>
+        Perfil do <span>LOREM IPSUM</span>
       </div>
       <div className="box">
         <p>
           Nome:<span className="almost-invisible">. . .</span>
-          <span>{profileInfo?.name}</span>
+          <span>LOREM IPSUM</span>
         </p>
         <p>
           Idade: <span className="almost-invisible"> . . .</span>
-          <span>{profileInfo?.age}</span>
+          <span>LOREM IPSUM</span>
         </p>
         <p>
           Profissão:<span className="almost-invisible">.</span>
-          <span>{profileInfo?.profession}</span>
+          <span>LOREM IPSUM</span>
         </p>
       </div>
       <div className="title">Interesses</div>
-      <div className="box">{profileInfo?.interests}</div>
+      <div className="box">LOREM IPSUM</div>
     </div>
   );
 }

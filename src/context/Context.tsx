@@ -1,46 +1,46 @@
 import { createContext, useState } from "react";
+import { useEffect } from "react";
+const io = require("socket.io-client");
 
 type Props = {
   children: React.ReactNode;
 };
 
 type User = {
+  id: number;
   name: string;
-  age: number;
-  profession: string;
-  interests: string;
 };
 
 export const usersContext = createContext<{
   usersOnline: User[];
-  jwt: string;
+  setUsersOnline: React.Dispatch<React.SetStateAction<User[]>>;
+  jwt: string | null;
+  setJwt: React.Dispatch<React.SetStateAction<string>>;
 } | null>(null);
 
 const Context = ({ children }: Props) => {
   const [usersOnline, setUsersOnline] = useState<User[]>([
     {
+      id: 32,
       name: "Bob Shmudarasd",
-      age: 32,
-      profession: "unemployed",
-      interests: "soccer,golf,programming...",
     },
     {
-      name: "Claire        Defan",
-      age: 12,
-      profession: "jobs asd 3aosif",
-      interests: "nothing...",
-    },
-    {
-      name: "John Doe",
-      age: 52,
-      profession: "lorem ipsum",
-      interests: "cafe ,programming ahh322..",
+      id: 12,
+      name: "Claire Defan",
     },
   ]);
   const [jwt, setJwt] = useState<string>("aosdiadsosad");
 
+  const socket = io("http://localhost:3001");
+
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log(`connected with ID: ${socket.id}`);
+    });
+  });
+
   return (
-    <usersContext.Provider value={{ usersOnline, jwt }}>
+    <usersContext.Provider value={{ usersOnline, setUsersOnline, jwt, setJwt }}>
       {children}
     </usersContext.Provider>
   );
