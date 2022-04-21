@@ -14,9 +14,6 @@ const Register = () => {
   const [notificationClasses, setNotificationClasses] =
     useState<string>("notification");
 
-  const formRef = useRef<HTMLFormElement>(null);
-  const notificationRef = useRef<HTMLDivElement>(null);
-
   function submitHandler(e: React.SyntheticEvent) {
     e.preventDefault();
     axios
@@ -33,6 +30,10 @@ const Register = () => {
           setProfession("");
           setInterests("");
         }
+
+        setTimeout(() => {
+          window.location.href = "/entrar";
+        }, 1500);
       })
       .catch((err) => {
         console.log(err.response);
@@ -43,11 +44,9 @@ const Register = () => {
 
   return (
     <div className="section__register">
-      <div ref={notificationRef} className={notificationClasses}>
-        {notificationMsg}
-      </div>
+      <div className={notificationClasses}>{notificationMsg}</div>
       <img src={logo} alt="logo" />
-      <form ref={formRef} onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}>
         <span>Nome</span>
         <input
           type="text"

@@ -4,8 +4,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { useEffect } from "react";
-import { io } from "socket.io-client";
 
 // components
 import Main from "./components/Main";
@@ -37,10 +35,10 @@ function App() {
         <Router>
           <Header>
             <Links />
-            <SignInSignOut loggedIn={false} />
+            <SignInSignOut />
           </Header>
           <Main>
-            <SideMenu loggedIn={true} />
+            <SideMenu />
             <Section>
               <Routes>
                 <Route path="/" element={<Navigate to="/chat" />} />

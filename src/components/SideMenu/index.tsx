@@ -9,11 +9,13 @@ import {
 } from "react-icons/bs";
 import { useLocation, Link } from "react-router-dom";
 import SignInSignOut from "../SignInSignOut";
+import { useContext } from "react";
+import { usersContext } from "../../context/Context";
 
-type Props = { loggedIn: boolean };
-
-function SideMenu({ loggedIn }: Props) {
+function SideMenu() {
   const { pathname } = useLocation();
+  const context = useContext(usersContext);
+  const jwt = context?.jwt;
 
   return (
     <div className="side-menu-wrapper">
@@ -24,7 +26,7 @@ function SideMenu({ loggedIn }: Props) {
               {pathname !== "/chat" ? <BsChatRight /> : <BsChatRightFill />}
             </Link>
           </li>
-          {loggedIn && (
+          {jwt && (
             <li>
               <Link to="/perfil">
                 {pathname !== "/perfil" ? <BsPerson /> : <BsPersonFill />}
@@ -38,7 +40,7 @@ function SideMenu({ loggedIn }: Props) {
           </li>
         </ul>
       </div>
-      <SignInSignOut loggedIn={false} />
+      <SignInSignOut />
     </div>
   );
 }

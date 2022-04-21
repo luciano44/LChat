@@ -1,14 +1,15 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { usersContext } from "../../context/Context";
 
-type Props = {
-  loggedIn: boolean;
-};
+function SignInSignOut() {
+  const context = useContext(usersContext);
+  const jwt = context?.jwt;
 
-function SignInSignOut({ loggedIn }: Props) {
   return (
     <div className="header__buttons">
-      {loggedIn ? (
+      {jwt ? (
         <Link to="/sair" className="btn signout">
           Sair
         </Link>
