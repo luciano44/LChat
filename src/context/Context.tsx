@@ -29,7 +29,7 @@ const Context = ({ children }: Props) => {
       name: "Claire Defan",
     },
   ]);
-  const [jwt, setJwt] = useState<string>("");
+  const [jwt, setJwt] = useState<string>(localStorage.getItem("token")!);
 
   const socket = io("http://localhost:3001");
 

@@ -13,6 +13,7 @@ import Aside from "./components/Aside";
 import SideMenu from "./components/SideMenu";
 import Links from "./components/Links";
 import SignInSignOut from "./components/SignInSignOut";
+import SignOut from "./components/SignOut";
 
 // page components
 import Chat from "./components/Pages/Chat";
@@ -48,7 +49,7 @@ function App() {
                 <Route path="/entrar" element={<Login />} />
                 <Route path="/cadastrar" element={<Register />} />
                 <Route path="/sobre" element={<About />} />
-                <Route path="/sair" element={<>sair **</>} />
+                <Route path="/sair" element={<SignOut />} />
               </Routes>
             </Section>
             <Aside />

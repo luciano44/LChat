@@ -1,7 +1,9 @@
 import "./style.scss";
 import logo from "../../../img/logos/svg/logo-dark.svg";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import axios from "../../../scripts/axios";
+import { Navigate } from "react-router-dom";
+import { usersContext } from "../../../context/Context";
 
 const Register = () => {
   const [name, setName] = useState<string>("");
@@ -14,6 +16,9 @@ const Register = () => {
   const [notificationClasses, setNotificationClasses] =
     useState<string>("notification");
 
+  const context = useContext(usersContext);
+  const jwt = context?.jwt;
+
   function submitHandler(e: React.SyntheticEvent) {
     e.preventDefault();
     axios
@@ -21,7 +26,7 @@ const Register = () => {
       .then((res) => {
         console.log(res);
         setNotificationMsg(res.data.msg);
-        if (res.status == 201) {
+        if (res.status === 201) {
           setNotificationClasses("notification notification-success");
 
           setName("");
@@ -42,6 +47,14 @@ const Register = () => {
       });
   }
 
+  const inputNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputNameRef.current?.focus();
+  }, []);
+
+  if (jwt) return <Navigate to="/" />;
+
   return (
     <div className="section__register">
       <div className={notificationClasses}>{notificationMsg}</div>
@@ -49,6 +62,7 @@ const Register = () => {
       <form onSubmit={submitHandler}>
         <span>Nome</span>
         <input
+          ref={inputNameRef}
           type="text"
           maxLength={30}
           onChange={(e) => {

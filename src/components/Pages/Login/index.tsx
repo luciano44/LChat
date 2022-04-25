@@ -1,8 +1,9 @@
 import "./style.scss";
 import logo from "../../../img/logos/svg/logo-dark.svg";
 import axios from "../../../scripts/axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { usersContext } from "../../../context/Context";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [name, setName] = useState<string>("");
@@ -12,7 +13,14 @@ const Login = () => {
     useState<string>("notification");
 
   const context = useContext(usersContext);
-  const setJwt = context?.setJwt;
+  const jwt = context?.jwt;
+  const setJwt = context?.setJwt!;
+
+  const inputNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputNameRef.current?.focus();
+  }, []);
 
   function showNotification(msg: string, classes: string) {
     setNotificationMsg(msg);
@@ -26,11 +34,14 @@ const Login = () => {
       .then(({ data }) => {
         showNotification(data.msg, "notification notification-success");
         setJwt!(data.token);
+        localStorage.setItem("token", data.token);
       })
       .catch(({ response }) => {
         showNotification(response.data.msg, "notification notification-error");
       });
   }
+
+  if (jwt) return <Navigate to="/" />;
 
   return (
     <div className="section__login">
@@ -45,6 +56,7 @@ const Login = () => {
             setName(e.target.value);
           }}
           value={name}
+          ref={inputNameRef}
         />
         <span>Senha</span>
         <input
