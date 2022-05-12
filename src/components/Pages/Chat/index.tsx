@@ -1,59 +1,33 @@
 import "./style.scss";
 import Message from "../../Message";
 
-import React, { useRef, useEffect, useState, SyntheticEvent } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useContext,
+  SyntheticEvent,
+} from "react";
 
-type MessagesType = {
-  author: string;
-  message: string;
-};
-
-type Props = {
-  children: React.ReactNode;
-  setMessages: React.Dispatch<React.SetStateAction<MessagesType[]>>;
-};
+import { usersContext } from "../../../context/Context";
 
 function Chat() {
+  const { messages } = useContext(usersContext)!;
+  const { sendMessage } = useContext(usersContext)!;
+
   const [shouldItScroll, setShouldItScroll] = useState(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesRef = useRef<HTMLUListElement>(null);
-  const [messages, setMessages] = useState<MessagesType[]>([
-    {
-      author: "Bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
-    },
 
-    {
-      author: "iamtheone34",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-    {
-      author: "bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-  ]);
+  console.log(messages);
+
   const limitOfMessages = 300;
 
   // automatically scrolls the chat to the bottom when comp. is rendered.
   useEffect(() => {
     messagesRef.current?.scrollBy(0, 9999);
     inputRef.current?.focus();
-
-    //auto message
-    // setInterval(() => {
-    //   setMessages((prev) => [
-    //     ...prev,
-    //     {
-    //       author: "Bob_51",
-    //       message:
-    //         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
-    //     },
-    //   ]);
-    // }, 1000);
   }, []);
 
   // scrolls the chat to the bottom at every new message if it's already scrolled next to the bottom.
@@ -91,7 +65,7 @@ function Chat() {
     if (messages.length > limitOfMessages) {
       const newMessages = messages;
       newMessages.splice(0, 50);
-      setMessages(() => [...newMessages]);
+      // setMessages(() => [...newMessages]);
     }
   });
 
@@ -99,10 +73,11 @@ function Chat() {
     e.preventDefault();
     const message = inputRef.current?.value;
     if (message) {
-      setMessages((prev) => [
-        ...prev,
-        { author: "BOTLCN44", message: message! },
-      ]);
+      // setMessages((prev) => [
+      //   ...prev,
+      //   { author: "BOTLCN44", message: message! },
+      // ]);
+      sendMessage(message);
       inputRef.current!.value = "";
       messagesRef.current?.scrollBy(0, 9999);
     }

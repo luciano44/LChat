@@ -33,7 +33,7 @@ const Login = () => {
       .post("/signin", { name, pwd })
       .then(({ data }) => {
         showNotification(data.msg, "notification notification-success");
-        setJwt!(data.token);
+        setJwt(data.token);
         localStorage.setItem("token", data.token);
       })
       .catch(({ response }) => {

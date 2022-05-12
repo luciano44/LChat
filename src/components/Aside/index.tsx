@@ -5,17 +5,22 @@ import "./style.scss";
 
 function Aside() {
   const { usersOnline } = useContext(usersContext)!;
+  const usersLoggedIn = usersOnline.filter((user) => {
+    if (user.name) {
+      return user;
+    }
+  });
 
   return (
     <aside className="aside">
       <header>
         <span>Online</span>
-        <span>6</span>
+        <span>{usersLoggedIn.length}</span>
       </header>
       <ul className="aside__users-online">
-        {usersOnline?.map((user, i) => (
-          <UserOnline key={i} name={user.name} />
-        ))}
+        {usersLoggedIn?.map(
+          (user, i) => user.name && <UserOnline key={i} name={user.name} />
+        )}
       </ul>
     </aside>
   );
