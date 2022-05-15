@@ -10,6 +10,7 @@
   align-items: flex-end;
   list-style: none;
   color: #555;
+  border-radius: 5px;
   cursor: pointer;
 
   margin-bottom: 1px;
@@ -22,5 +23,9 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  &:hover {
+    background: rgba(211, 211, 211, 0.4);
   }
 }

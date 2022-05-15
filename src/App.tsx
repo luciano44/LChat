@@ -44,7 +44,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/chat" />} />
                 <Route path="/chat" element={<Chat />} />
-                <Route path="/perfil" element={<Profile />} />
+                <Route path="/perfil/:user" element={<Profile />} />
                 <Route path="/usuarios" element={<Users />} />
                 <Route path="/entrar" element={<Login />} />
                 <Route path="/cadastrar" element={<Register />} />

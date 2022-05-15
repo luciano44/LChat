@@ -4,6 +4,40 @@
   position: relative;
   padding: 25px;
 
+  .user-not-found {
+    color: hsl(0, 100%, 20%);
+    p:nth-child(1) {
+      // color: #333;
+      font-size: 7rem;
+    }
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: bold;
+    align-items: center;
+
+    // a {
+    //   display: flex;
+    //   align-items: center;
+    //   margin-top: 50px;
+    //   text-decoration: none;
+    //   color: #f1f1f1;
+    //   background: $first-color;
+    //   padding: 5px 10px;
+    //   border-radius: 5px;
+    //   background: red;
+    //   span {
+    //     margin-left: 7px;
+    //   }
+
+    //   &:hover {
+    //     color: $first-color;
+    //     border: 1px solid $first-color;
+    //     background: #f1f1f1;
+    //   }
+    // }
+  }
+
   .title {
     color: #333;
     font-weight: bold;

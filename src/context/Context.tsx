@@ -22,6 +22,7 @@ export const usersContext = createContext<{
   jwt: string | null;
   setJwt: React.Dispatch<React.SetStateAction<string>>;
   messages: MessagesType[];
+  myName: string;
   sendMessage: (msg: string) => void;
 } | null>(null);
 
@@ -31,27 +32,29 @@ const Context = ({ children }: Props) => {
   const [usersOnline, setUsersOnline] = useState<User[]>([]);
   const [jwt, setJwt] = useState<string>(localStorage.getItem("token")!);
   const [id, setId] = useState<number | undefined>(undefined);
+  const [myName, setMyName] = useState<string>("");
   const [messages, setMessages] = useState<MessagesType[]>([
-    {
-      author: "Bob",
-      message:
-        "xxxxxxxLorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
-    },
-
-    {
-      author: "iamtheone34",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
-    {
-      author: "bob",
-      message:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    },
+    // {
+    //   author: "Bob",
+    //   message:
+    //     "xxxxxxxLorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
+    // },
+    // {
+    //   author: "iamtheone34",
+    //   message:
+    //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
+    // },
+    // {
+    //   author: "bob",
+    //   message:
+    //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
+    // },
   ]);
 
   useEffect(() => {
     socket.on("connect", () => {
+      setId(socket.id);
+
       socket.on("update-users", (users: User[]) => {
         setUsersOnline(users);
       });
@@ -60,8 +63,11 @@ const Context = ({ children }: Props) => {
         setMessages((prev) => [...prev, msg]);
       });
 
-      console.log(`connected with ID: ${socket.id}`);
-      setId(socket.id);
+      socket.on("user-not-logged-in", () => {
+        alert(
+          "MENSAGEM NÃO ENVIADA, faça o LOGIN para poder usar o Chat, ou CADASTRE-SE caso não possua uma conta."
+        );
+      });
     });
   }, []);
 
@@ -69,13 +75,22 @@ const Context = ({ children }: Props) => {
     if (!jwt) {
       socket.emit("logout", id);
     }
-    console.log(id);
   }, [jwt]);
 
   useEffect(() => {
-    console.log("alteracao no jwt");
     socket.emit("login", { id, token: jwt });
   }, [jwt, id]);
+
+  useEffect(() => {
+    const user = usersOnline.find((user) => {
+      if (user.id === id) {
+        return user;
+      }
+    });
+    if (user?.name) {
+      setMyName(user.name);
+    }
+  }, [usersOnline, id]);
 
   function sendMessage(msg: string) {
     socket.emit("send-msg", msg);
@@ -90,6 +105,7 @@ const Context = ({ children }: Props) => {
         setJwt,
         messages,
         sendMessage,
+        myName,
       }}
     >
       {children}

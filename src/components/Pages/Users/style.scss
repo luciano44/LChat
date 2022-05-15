@@ -3,7 +3,8 @@
 
 .section__users {
   position: absolute;
-  height: 100%;
+  // height: 100%;
+  height: auto;
   padding: 25px;
   display: flex;
   justify-content: flex-start;
@@ -13,17 +14,23 @@
 
   .user {
     @include flexCenter;
+    text-decoration: none;
     flex-direction: column;
     flex: 1 1 200px;
     list-style: none;
     // border: 1px solid lightgray;
     background-color: rgba(211, 211, 211, 0.4);
     width: fit-content;
-    padding: 10px 0;
-    padding-left: 5%;
+    // padding: 10px 0;
+    // padding-left: 5%;
+    padding: 10px;
     border-radius: $border-radius;
     margin: 5px 5px 0 0;
     max-height: 125px;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
   }
 
   p {

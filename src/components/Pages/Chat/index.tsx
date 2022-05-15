@@ -20,7 +20,7 @@ function Chat() {
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesRef = useRef<HTMLUListElement>(null);
 
-  console.log(messages);
+  // console.log(messages);
 
   const limitOfMessages = 300;
 
@@ -38,7 +38,7 @@ function Chat() {
       getComputedStyle(messagesRef.current!).height.split(".")[0]
     );
     const MinimumToAutoScroll =
-      scrollHeight && scrollHeight - messagesHeight - 100;
+      scrollHeight && scrollHeight - messagesHeight - 500;
 
     if (scrollDistanceFromTop && MinimumToAutoScroll) {
       scrollDistanceFromTop > MinimumToAutoScroll &&
@@ -92,7 +92,13 @@ function Chat() {
       </ul>
 
       <form onSubmit={submitHandler}>
-        <input ref={inputRef} type="text" name="message" id="message" />
+        <input
+          ref={inputRef}
+          type="text"
+          name="message"
+          id="message"
+          maxLength={1500}
+        />
         <button ref={buttonRef} type="submit">
           Enviar
         </button>

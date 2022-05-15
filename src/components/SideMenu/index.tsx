@@ -16,6 +16,9 @@ function SideMenu() {
   const { pathname } = useLocation();
   const context = useContext(usersContext);
   const jwt = context?.jwt;
+  const myName = context?.myName;
+
+  const profileLink = `/perfil/${myName}`;
 
   return (
     <div className="side-menu-wrapper">
@@ -28,8 +31,12 @@ function SideMenu() {
           </li>
           {jwt && (
             <li>
-              <Link to="/perfil">
-                {pathname !== "/perfil" ? <BsPerson /> : <BsPersonFill />}
+              <Link to={profileLink}>
+                {!pathname.includes("/perfil") ? (
+                  <BsPerson />
+                ) : (
+                  <BsPersonFill />
+                )}
               </Link>
             </li>
           )}

@@ -42,7 +42,8 @@
 }
 
 .section__chat__messages {
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   flex-grow: 1;
   padding: 0;
@@ -50,5 +51,7 @@
 
   li {
     list-style: none;
+
+    word-break: break-word;
   }
 }
