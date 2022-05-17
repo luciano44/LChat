@@ -2,6 +2,7 @@ import "./style.scss";
 import axios from "../../../scripts/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaUserAlt } from "react-icons/fa";
 
 type User = {
   name: string;
@@ -30,7 +31,10 @@ const Users = () => {
 
           return (
             <Link to={profileLink} className="user" key={i}>
-              <p>{user.name}</p>
+              <p>
+                {" "}
+                <FaUserAlt /> {user.name}
+              </p>
               <p>
                 Idade: <span>{user.age}</span>
               </p>

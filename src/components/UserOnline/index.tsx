@@ -1,5 +1,5 @@
 import "./style.scss";
-import { BiUser } from "react-icons/bi";
+import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 type Name = { name: string };
@@ -9,7 +9,7 @@ function UserOnline({ name }: Name) {
     <Link to={`perfil/${name}`}>
       <li title={name} className="aside__user">
         <span>
-          <BiUser />
+          <FaUserAlt />
         </span>
         <span>{name}</span>
       </li>

@@ -16,31 +16,49 @@
     font-weight: bold;
     align-items: center;
 
-    // a {
-    //   display: flex;
-    //   align-items: center;
-    //   margin-top: 50px;
-    //   text-decoration: none;
-    //   color: #f1f1f1;
-    //   background: $first-color;
-    //   padding: 5px 10px;
-    //   border-radius: 5px;
-    //   background: red;
-    //   span {
-    //     margin-left: 7px;
-    //   }
+    a {
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+      text-decoration: none;
+      color: #f1f1f1;
+      background: $first-color;
+      padding: 5px 10px;
+      border-radius: 5px;
+      span {
+        margin-left: 7px;
+      }
 
-    //   &:hover {
-    //     color: $first-color;
-    //     border: 1px solid $first-color;
-    //     background: #f1f1f1;
-    //   }
-    // }
+      &:hover {
+        color: $first-color;
+        border: 1px solid $first-color;
+        background: #f1f1f1;
+      }
+    }
   }
 
   .title {
     color: #333;
     font-weight: bold;
+  }
+
+  .title:nth-child(1) {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
+    svg {
+      display: flex;
+      flex-shrink: 0;
+    }
   }
 
   .box {
@@ -49,26 +67,54 @@
     margin: 5px 0 15px;
     padding: 10px;
     border-radius: $border-radius;
+    display: flex;
 
-    p {
+    .description,
+    .data {
       display: flex;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-      color: #555;
-
-      span {
-        color: #333;
-        font-size: 1rem;
-        margin: 0 8px;
-      }
-
-      span:last-child {
-        margin-left: 0;
-      }
-
-      .almost-invisible {
-        filter: opacity(0.25);
-      }
+      flex-direction: column;
+      overflow: hidden;
     }
+
+    .description {
+      min-width: fit-content;
+      font-weight: bold;
+      color: #777;
+    }
+
+    .data span {
+      margin-left: 10px;
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    // p {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   font-size: 0.8rem;
+    //   color: #555;
+
+    //   span {
+    //     color: #333;
+    //     font-size: 1rem;
+    //     margin: 0 8px;
+    //   }
+
+    //   span:last-child {
+    //     margin-left: 0;
+    //   }
+
+    //   .almost-invisible {
+    //     filter: opacity(0.25);
+    //   }
+    // }
+  }
+}
+
+@media (max-width: $responsivity1) {
+  .section__profile {
+    padding: 25px 10px;
   }
 }
