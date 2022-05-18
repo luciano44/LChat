@@ -19,10 +19,6 @@ const Users = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   return (
     <ul className="section__users">
       {users &&
