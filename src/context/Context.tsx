@@ -26,7 +26,9 @@ export const usersContext = createContext<{
   sendMessage: (msg: string) => void;
 } | null>(null);
 
-const socket = io(process.env.REACT_APP_BACKEND_URL || "http://localhost:3001");
+const socket = io(
+  `${process.env.REACT_APP_BACKEND_URL}` || "http://localhost:3001"
+);
 
 const Context = ({ children }: Props) => {
   const [usersOnline, setUsersOnline] = useState<User[]>([]);
