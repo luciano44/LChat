@@ -18,15 +18,13 @@
     flex-direction: column;
     flex: 1 1 200px;
     list-style: none;
-    // border: 1px solid lightgray;
     background-color: rgba(211, 211, 211, 0.4);
     width: fit-content;
-    // padding: 10px 0;
-    // padding-left: 5%;
     padding: 10px;
     border-radius: $border-radius;
     margin: 5px 5px 0 0;
     max-height: 125px;
+    overflow: hidden;
 
     &:hover {
       filter: brightness(0.9);
