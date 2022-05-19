@@ -49,9 +49,13 @@
     margin-right: auto;
     overflow: hidden;
     text-overflow: ellipsis;
+     width: 100%;
 
     span {
       margin-left: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
