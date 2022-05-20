@@ -1,4 +1,5 @@
 @import "../../../css/variables.scss";
+@import "../../../css/mixins.scss";
 
 .section__profile {
   position: relative;
@@ -7,7 +8,6 @@
   .user-not-found {
     color: hsl(0, 100%, 20%);
     p:nth-child(1) {
-      // color: #333;
       font-size: 7rem;
     }
     display: flex;
@@ -43,7 +43,9 @@
   }
 
   .title:nth-child(1) {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    color: #555;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
 
@@ -115,6 +117,6 @@
 
 @media (max-width: $responsivity1) {
   .section__profile {
-    padding: 25px 10px;
+    padding: 10px;
   }
 }

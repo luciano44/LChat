@@ -1,6 +1,27 @@
 @import "../../../css/variables.scss";
 @import "../../../css/mixins.scss";
 
+h3 {
+  @include flexCenter;
+  font-weight: normal;
+  color: #333;
+  // background: red;
+  position: absolute;
+  width: 100%;
+  padding-top: 25px;
+
+  svg {
+    margin-right: 10px;
+    animation: 1s loading linear infinite;
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .section__users {
   position: absolute;
   // height: 100%;
@@ -47,7 +68,7 @@
     margin-right: auto;
     overflow: hidden;
     text-overflow: ellipsis;
-     width: 100%;
+    width: 100%;
 
     span {
       margin-left: 5px;

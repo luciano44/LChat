@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { GiReturnArrow } from "react-icons/gi";
 import { ImProfile } from "react-icons/im";
+import { BiLoaderAlt } from "react-icons/bi";
 import axios from "../../../scripts/axios";
 
 type User = {
@@ -16,6 +17,7 @@ type User = {
 function Profile() {
   const [error, setError] = useState(false);
   const [userDB, setUserDB] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { user } = useParams();
 
@@ -29,70 +31,62 @@ function Profile() {
       .catch(() => setError(true));
   }, [user]);
 
-  return (
-    <div className="section__profile">
-      {error ? (
-        <div className="user-not-found">
-          <p>404</p>
-          <p>Usuário inexistente</p>
-          <Link to="/">
-            <GiReturnArrow /> <span>Voltar</span>
-          </Link>
-        </div>
-      ) : (
-        <>
-          <div className="title">
-            <ImProfile />
-            <span>{userDB?.name}</span>
-          </div>
-          <div className="box">
-            <div className="description">
-              <span>Registro: </span>
-              <span>Nome: </span>
-              <span>Idade: </span>
-              <span>Profissão: </span>
-            </div>
-            <div className="data">
-              <span>
-                {new Date(userDB?.date!).toLocaleString("pt-br", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                })}
-              </span>
-              <span>{userDB?.name} </span>
-              <span>{userDB?.age} </span>
-              <span>{userDB?.profession} </span>
-            </div>
+  useEffect(() => {
+    userDB && setLoading((v) => !v);
+  }, [userDB]);
 
-            {/* <p>
-              Registro:<span className="almost-invisible">. .</span>
-              <span>
-                {new Date(userDB?.date!).toLocaleString("pt-br", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                })}
-              </span>
-            </p>
-            <p>
-              Nome:<span className="almost-invisible">. . .</span>
-              <span>{userDB?.name}</span>
-            </p>
-            <p>
-              Idade: <span className="almost-invisible"> . . .</span>
-              <span>{userDB?.age}</span>
-            </p>
-            <p>
-              Profissão:<span className="almost-invisible">.</span>
-              <span>{userDB?.profession}</span>
-            </p> */}
-          </div>
-          <div className="title">Interesses</div>
-          <div className="box">{userDB?.interests}</div>
+  return (
+    <>
+      {loading && (
+        <>
+          <h3>
+            <BiLoaderAlt />
+            Carregando...
+          </h3>
         </>
       )}
-    </div>
+      <div className="section__profile">
+        {error && (
+          <div className="user-not-found">
+            <p>404</p>
+            <p>Usuário inexistente</p>
+            <Link to="/">
+              <GiReturnArrow /> <span>Voltar</span>
+            </Link>
+          </div>
+        )}
+        {!loading && (
+          <>
+            <div className="title">
+              <ImProfile />
+              <span>{userDB?.name}</span>
+            </div>
+            <div className="box">
+              <div className="description">
+                <span>Registro: </span>
+                <span>Nome: </span>
+                <span>Idade: </span>
+                <span>Profissão: </span>
+              </div>
+              <div className="data">
+                <span>
+                  {new Date(userDB?.date!).toLocaleString("pt-br", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                  })}
+                </span>
+                <span>{userDB?.name} </span>
+                <span>{userDB?.age} </span>
+                <span>{userDB?.profession} </span>
+              </div>
+            </div>
+            <div className="title">Interesses</div>
+            <div className="box">{userDB?.interests}</div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
