@@ -2,7 +2,7 @@ import "./style.scss";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { GiReturnArrow } from "react-icons/gi";
-import { ImProfile } from "react-icons/im";
+import { ImUser, ImHeart } from "react-icons/im";
 import { BiLoaderAlt } from "react-icons/bi";
 import axios from "../../../scripts/axios";
 
@@ -28,12 +28,19 @@ function Profile() {
         setError(false);
         setUserDB(data.userDB);
       })
-      .catch(() => setError(true));
+      .catch(() => {
+        setError(true);
+        setLoading((v) => !v);
+      });
   }, [user]);
 
   useEffect(() => {
-    userDB && setLoading((v) => !v);
+    userDB ? setLoading(false) : setLoading(true);
   }, [userDB]);
+
+  useEffect(() => {
+    error && setLoading(false);
+  });
 
   return (
     <>
@@ -55,10 +62,10 @@ function Profile() {
             </Link>
           </div>
         )}
-        {!loading && (
+        {!loading && !error && (
           <>
             <div className="title">
-              <ImProfile />
+              <ImUser />
               <span>{userDB?.name}</span>
             </div>
             <div className="box">
@@ -81,7 +88,9 @@ function Profile() {
                 <span>{userDB?.profession} </span>
               </div>
             </div>
-            <div className="title">Interesses</div>
+            <div className="title">
+              <ImHeart /> <span>Interesses</span>
+            </div>
             <div className="box">{userDB?.interests}</div>
           </>
         )}
