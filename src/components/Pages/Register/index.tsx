@@ -36,9 +36,6 @@ const Register = () => {
           setInterests("");
         }
 
-        setTimeout(() => {
-          window.location.href = "/entrar";
-        }, 1500);
       })
       .catch((err) => {
         console.log(err.response);
