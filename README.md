@@ -1,4 +1,4 @@
-### Visite 👉 [LCHAT](https://www.luchat.netlify.app)
+### Visite 👉 [LCHAT](https://luchat.netlify.app)
 
 -------------------
 
