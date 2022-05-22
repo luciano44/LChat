@@ -35,7 +35,6 @@ const Register = () => {
           setProfession("");
           setInterests("");
         }
-
       })
       .catch((err) => {
         console.log(err.response);
