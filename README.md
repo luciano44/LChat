@@ -1,8 +1,10 @@
 ### Visite 👉 [LCHAT](https://luchat.netlify.app)
 
-<a align="center" href="luchat.netlify.app" target="_blank">
-  <img src="https://luchat.netlify.app/static/media/logo-with-text.453b433c34b43a6b4833d333b03aeccc.svg" />
-</a>
+<p align="center" >
+  <a href="http://luchat.netlify.app" target="_blank">
+    <img src="https://luchat.netlify.app/static/media/logo-with-text.453b433c34b43a6b4833d333b03aeccc.svg" />
+  </a>
+</p>
 
 -------------------
 
