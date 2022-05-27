@@ -37,23 +37,7 @@ const Context = ({ children }: Props) => {
   const [jwt, setJwt] = useState<string>(localStorage.getItem("token")!);
   const [id, setId] = useState<number | undefined>(undefined);
   const [myName, setMyName] = useState<string>("");
-  const [messages, setMessages] = useState<MessagesType[]>([
-    // {
-    //   author: "Bob",
-    //   message:
-    //     "xxxxxxxLorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi",
-    // },
-    // {
-    //   author: "iamtheone34",
-    //   message:
-    //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    // },
-    // {
-    //   author: "bob",
-    //   message:
-    //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi vel dolores temporibus recusandae laboriosam quas perferendis dignissimos repudiandae amet maxime ratione tenetur cumque, porro veritatis hic sequi, quisquam accusantium est laudantium illo quaerat ab alias aliquid. Vero quia natus recusandae harum illum, unde voluptate nihil quam veniam ullam ipsa architecto.",
-    // },
-  ]);
+  const [messages, setMessages] = useState<MessagesType[]>([]);
 
   useEffect(() => {
     socket.on("connect", () => {

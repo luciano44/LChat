@@ -43,8 +43,9 @@ const Users = () => {
             return (
               <Link to={profileLink} className="user" key={i}>
                 <p>
-                  {" "}
-                  <FaUserAlt /> {user.name}
+                  <span>
+                    <FaUserAlt /> {user.name}
+                  </span>
                 </p>
                 <p>
                   Idade: <span>{user.age}</span>

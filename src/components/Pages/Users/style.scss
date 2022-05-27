@@ -24,7 +24,7 @@ h3 {
 
 .section__users {
   position: absolute;
-  // height: 100%;
+  max-width: 100%;
   height: auto;
   padding: 25px;
   display: flex;
@@ -43,7 +43,7 @@ h3 {
     width: fit-content;
     padding: 10px;
     border-radius: $border-radius;
-    margin: 5px 5px 0 0;
+    margin: 5px 0 0 5px;
     max-height: 125px;
     overflow: hidden;
 
@@ -97,6 +97,6 @@ h3 {
 
 @media (max-width: $responsivity1) {
   .section__users {
-    padding: 10px;
+    padding: 5px 10px 5px 5px;
   }
 }
