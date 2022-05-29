@@ -1,4 +1,4 @@
-[LCHAT](https://luchat.netlify.app)
+https://luchat.netlify.app
 
 <p align="center" >
   <a href="http://luchat.netlify.app" target="_blank">
