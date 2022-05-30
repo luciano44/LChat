@@ -8,7 +8,7 @@ https://luchat.netlify.app
 
 -------------------
 
-## Cadastro
+## Sign Up
 ![Tela de cadastro](https://i.ibb.co/BjttmDp/image.png)
 
 ## Login
@@ -17,8 +17,8 @@ https://luchat.netlify.app
 ## Chat
 ![Tela de Chat](https://i.ibb.co/ydcCdBK/image.png)
 
-## Usuário Registrados
+## Registered Users
 ![Tela de Usuário Registrados](https://i.ibb.co/K5Y3LQ7/image.png)
 
-## Perfil
+## Profile Page
 ![Tela de Perfil](https://i.ibb.co/cbfbF4q/image.png)
